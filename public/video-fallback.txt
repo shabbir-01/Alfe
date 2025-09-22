@@ -1,0 +1,16 @@
+To use this project with a real video background:
+
+1. Add a video file named 'hero-bg.mp4' to the public folder
+2. The video should be:
+   - High quality (1920x1080 or higher)
+   - Fashion/clothing related content
+   - Loopable (seamless loop)
+   - Optimized for web (compressed appropriately)
+   - Around 15-30 seconds long
+
+Example video sources:
+- Pexels.com (free videos)
+- Unsplash.com (free videos)  
+- Custom fashion photography/videography
+
+The current Hero component has a gradient fallback that will display if no video is found.

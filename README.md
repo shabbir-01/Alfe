@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Alfè Fashion Store
+
+A modern, pixel-perfect Next.js fashion e-commerce website featuring a responsive navbar and stunning hero section with video background.
+
+## Features
+
+- **Responsive Design**: Mobile-first approach with seamless desktop experience
+- **Modern UI**: Built with Tailwind CSS and shadcn/ui components
+- **Smooth Animations**: Framer Motion animations for enhanced user experience
+- **Video Background**: Full-screen hero section with video background support
+- **Elegant Typography**: Playfair Display serif font for branding, Inter for content
+- **Mobile Navigation**: Hamburger menu with slide-out navigation panel
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Styling**: Tailwind CSS v4
+- **Components**: shadcn/ui
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Fonts**: Inter (sans-serif), Playfair Display (serif)
+- **Language**: TypeScript
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx          # Root layout with fonts
+│   ├── page.tsx            # Homepage
+│   └── globals.css         # Global styles
+├── components/
+│   ├── ui/                 # shadcn/ui components
+│   └── layout/
+│       ├── Navbar.tsx      # Responsive navigation
+│       └── Hero.tsx        # Hero section with video
+└── lib/
+    └── utils.ts            # Utility functions
+```
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Add video background** (optional):
+   - Add a video file named `hero-bg.mp4` to the `public/` folder
+   - Video should be optimized for web (recommended: 15-30 seconds, 1920x1080+)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. **Open your browser**:
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Customization
 
-## Learn More
+### Brand Name
+Update the brand name in `src/components/layout/Navbar.tsx` (currently "Alfè")
 
-To learn more about Next.js, take a look at the following resources:
+### Navigation Menu
+Modify the `navItems` array in the Navbar component to change menu items and dropdown options.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Hero Content
+Edit the heading and button text in `src/components/layout/Hero.tsx`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Colors & Styling
+Customize the design system in `tailwind.config.ts` and `src/app/globals.css`
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deploy easily on Vercel:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/alfe-fashion-store)
+
+## License
+
+MIT License - feel free to use this project as a starting point for your fashion e-commerce website.
