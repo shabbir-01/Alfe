@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, User, ShoppingCart, Menu, X } from 'lucide-react';
+import { Search, User, ShoppingCart, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import {
@@ -21,13 +21,36 @@ const Navbar = () => {
     {
       label: 'Shop by',
       href: '#',
-      dropdown: ['Category 1', 'Category 2', 'Category 3'],
+      dropdown: [
+        'Fairy frills',
+        'Dresses', 
+        'Skirts & Bottoms',
+        'Tops and Fairy Kurti',
+        'Accessories'
+      ],
     },
     { label: 'About Us', href: '/about' },
     { label: 'Contact', href: '/contact' },
   ];
 
-  const NavLink = ({ item, isMobile = false }: { item: any; isMobile?: boolean }) => {
+  const getDropdownLink = (dropdownItem: string) => {
+    switch (dropdownItem) {
+      case 'Fairy frills':
+        return '/fairy-frills';
+      case 'Dresses':
+        return '/dresses';
+      case 'Skirts & Bottoms':
+        return '/skirts-bottoms';
+      case 'Tops and Fairy Kurti':
+        return '/tops-fairy-kurti';
+      case 'Accessories':
+        return '/accessories';
+      default:
+        return '#';
+    }
+  };
+
+  const NavLink = ({ item, isMobile = false }: { item: { label: string; href: string; dropdown?: string[] }; isMobile?: boolean }) => {
     if (item.dropdown) {
       return (
         <DropdownMenu>
@@ -37,7 +60,9 @@ const Navbar = () => {
           <DropdownMenuContent>
             {item.dropdown.map((dropdownItem: string, index: number) => (
               <DropdownMenuItem key={index} className="cursor-pointer">
-                {dropdownItem}
+                <a href={getDropdownLink(dropdownItem)} className="w-full block">
+                  {dropdownItem}
+                </a>
               </DropdownMenuItem>
             ))}
           </DropdownMenuContent>

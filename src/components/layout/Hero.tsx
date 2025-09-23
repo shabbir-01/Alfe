@@ -3,29 +3,41 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 const Hero = () => {
+  const router = useRouter();
+
+  const handleShopNowClick = () => {
+    router.push('/new-arrivals');
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="w-full h-screen overflow-hidden relative flex items-center justify-center">
       {/* Video Background */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
         <video
           autoPlay
-          loop
           muted
+          loop
           playsInline
-          className="w-full h-full object-cover"
+          style={{
+            width: '100%',
+            height: '300%',
+            objectFit: 'cover',
+            position: 'absolute',
+            top: '-95%',
+            left: '0'
+          }}
         >
+          <source src="/hero-bg.mov" type="video/quicktime" />
           <source src="/hero-bg.mp4" type="video/mp4" />
-          {/* Fallback background image */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black"></div>
+          Your browser does not support the video tag.
         </video>
-        {/* Dark overlay for better text contrast */}
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-20 text-center px-6 max-w-4xl mx-auto">
         {/* Main Heading */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -56,6 +68,7 @@ const Hero = () => {
           }}
         >
           <Button
+            onClick={handleShopNowClick}
             className="
               bg-white text-black font-semibold text-lg 
               px-12 py-4 rounded-xl 
@@ -69,36 +82,6 @@ const Hero = () => {
             SHOP NOW
           </Button>
         </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ 
-            duration: 0.8, 
-            delay: 2,
-            repeat: Infinity,
-            repeatType: 'reverse',
-            repeatDelay: 1
-          }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Decorative elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
-        
-        {/* Corner decorative elements */}
-        <div className="absolute top-4 left-4 w-20 h-20 border-l-2 border-t-2 border-white opacity-30"></div>
-        <div className="absolute top-4 right-4 w-20 h-20 border-r-2 border-t-2 border-white opacity-30"></div>
-        <div className="absolute bottom-4 left-4 w-20 h-20 border-l-2 border-b-2 border-white opacity-30"></div>
-        <div className="absolute bottom-4 right-4 w-20 h-20 border-r-2 border-b-2 border-white opacity-30"></div>
       </div>
     </section>
   );
